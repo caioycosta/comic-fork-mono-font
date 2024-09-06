@@ -1,3 +1,7 @@
 [submodule "vendor/cousine"]
 	path = vendor/cousine
 	url = https://github.com/caioycosta/cousine.git
+[submodule "vendor/comic-shanns"]
+	path = vendor/comic-shanns
+	url = https://github.com/caioycosta/comic-fork-mono-font.git
+	branch = comic-shanns
