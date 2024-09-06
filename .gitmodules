@@ -1,0 +1,3 @@
+[submodule "vendor/cousine"]
+	path = vendor/cousine
+	url = https://github.com/caioycosta/cousine.git
