@@ -1,12 +1,8 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
 Generates the Comic Mono font files based on Comic Shanns font.
-
-Required files:
-- vendor/comic-shanns.otf
-- vendor/Cousine-Regular.ttf
 
 Based on:
 - monospacifier: https://github.com/cpitclaudel/monospacifier/blob/master/monospacifier.py
@@ -17,9 +13,6 @@ import os
 import re
 import sys
 
-reload(sys)
-sys.setdefaultencoding('UTF8')
-
 import fontforge
 import psMat
 import unicodedata
@@ -29,7 +22,7 @@ def height(font):
 
 def adjust_height(source, template, scale):
     source.selection.all()
-    source.transform(psMat.scale(height(template) / height(source)))
+    source.transform(scale * psMat.scale(height(template) / height(source)))
     for attr in ['ascent', 'descent',
                 'hhea_ascent', 'hhea_ascent_add',
                 'hhea_linegap',
@@ -40,35 +33,35 @@ def adjust_height(source, template, scale):
                 'os2_typodescent', 'os2_typodescent_add',
                 ]:
         setattr(source, attr, getattr(template, attr))
-    source.transform(psMat.scale(scale))
-
-font = fontforge.open('vendor/comic-shanns.otf')
-ref = fontforge.open('vendor/Cousine-Regular.ttf')
+    
+font = fontforge.open('vendor/comic-shanns/v2/comic shanns.otf')
+ref = fontforge.open('vendor/cousine/fonts/ttf/hinted/variable_ttf/Cousine-VF.ttf')
 for g in font.glyphs():
     uni = g.unicode
-    category = unicodedata.category(unichr(uni)) if 0 <= uni <= sys.maxunicode else None
+    category = unicodedata.category(chr(uni)) if 0 <= uni <= sys.maxunicode else None
     if g.width > 0 and category not in ['Mn', 'Mc', 'Me']:
         target_width = 510
         if g.width != target_width:
             delta = target_width - g.width
-            g.left_side_bearing += delta / 2
-            g.right_side_bearing += delta - g.left_side_bearing
+            # Fix adapted from https://github.com/cpitclaudel/monospacifier/issues/32
+            g.left_side_bearing = round(g.left_side_bearing + delta / 2)           
+            g.right_side_bearing = round(g.right_side_bearing + delta - g.left_side_bearing)
             g.width = target_width
 
-font.familyname = 'Comic Mono'
-font.version = '0.1.1'
-font.comment = 'https://github.com/dtinth/comic-mono-font'
-font.copyright = 'https://github.com/dtinth/comic-mono-font/blob/master/LICENSE'
+font.familyname = 'Comic Fork Mono'
+font.version = '0.1'
+font.comment = 'https://github.com/caioycosta/comic-fork-mono-font'
+font.copyright = 'https://github.com/caioycosta/comic-fork-mono-font/blob/master/LICENSE'
 
-adjust_height(font, ref, 0.875)
+adjust_height(font, ref, 1)
 font.sfnt_names = [] # Get rid of 'Prefered Name' etc.
-font.fontname = 'ComicMono'
-font.fullname = 'Comic Mono'
-font.generate('ComicMono.ttf')
+font.fontname = 'ComicForkMono'
+font.fullname = 'Comic Fork Mono'
+font.generate('ComicForkMono.ttf')
 
 font.selection.all()
-font.fontname = 'ComicMono-Bold'
-font.fullname = 'Comic Mono Bold'
+font.fontname = 'ComicForkMono-Bold'
+font.fullname = 'Comic Fork Mono Bold'
 font.weight = 'Bold'
 font.changeWeight(32, "LCG", 0, 0, "squish")
-font.generate('ComicMono-Bold.ttf')
+font.generate('ComicForkMono-Bold.ttf')
