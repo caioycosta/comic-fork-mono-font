@@ -11,4 +11,4 @@ My goal is to use this font together with my other project, https://github.com/c
 File an issue and I'll (sometime) look into it. Beware that approval will be subject to my personal design preferences.
 
 # This is not a font, it's a typeface!
-Please refer to https://youtu.be/ndR081QG1Gg?si=WQS6HkuHaUd6gK87 .
+Please refer to https://youtu.be/ndR081QG1Gg .
