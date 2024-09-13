@@ -34,7 +34,7 @@ def adjust_height(source, template, scale):
                 ]:
         setattr(source, attr, getattr(template, attr))
     
-font = fontforge.open('vendor/comic-shanns/v2/comic shanns.otf')
+font = fontforge.open('vendor/comic-shanns/v2-2/comic shanns.otf')
 ref = fontforge.open('vendor/cousine/fonts/ttf/hinted/variable_ttf/Cousine-VF.ttf')
 for g in font.glyphs():
     uni = g.unicode
