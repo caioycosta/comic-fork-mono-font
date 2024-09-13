@@ -1,37 +1,14 @@
 # What it is
+Fork of comic-shanns (https://github.com/shannpersand/comic-shanns), without discrimination in the README against diacritics and removing the hideous serif from the "f" character.
 
-Are you the kind of person that uses Comic Sans in presentations? Do you lie awake every night dreaming about a world where you could write your code in Comic Sans where it looks just as beautiful as on your dear presentations? Wait no more! I present to you **Comic Shanns**! The Comic Sans inspired monospaced font that's coming to a terminal or editor near you!
+## How was it made?
+The TTF was edited in fontforge to adjust the "f" glyph, and from that new TTF and OTF were generated. The new fonts were placed in v2-2 folder. Original was kept in v2 for reference.
 
-## Update 2020
-- Added terrible accents
-- Some math characters
-- Adjusted horizontal metrics
-- otf and ttf version
+## If you hate the serif so much, why not remove it from other glyphs such as "i" and "l"?
+My goal is to use this font together with my other project, https://github.com/caioycosta/comic-fork-mono-font , in order to have a comic-like font for programming. `i`, `I`, `l`, and `1` are common pain-points with such fonts and as such, the serifs have a reason for being there -- which isn't the case with the "f" glyph.
 
-## Usage
-You can download it and install it like any other font.
+## Any other suggestions
+File an issue and I'll (sometime) look into it. Beware that approval will be subject to my personal design preferences.
 
-## What does it look like?
-Like if someone made a dumbass version of Comic Sans that is monospaced.
-
-![image 1](https://user-images.githubusercontent.com/4615568/44279591-c9909780-a206-11e8-9e1d-40db6d6db77e.png)
-![image 2](https://user-images.githubusercontent.com/4615568/44279592-ca292e00-a206-11e8-9278-4a7566425c0c.png)
-![image](https://user-images.githubusercontent.com/4615568/44279593-ca292e00-a206-11e8-9b25-a4533b50d471.png)
-
-## What's in it?
-`ABCDEFGHIJKLMNOPQRSTUVWXYZ`
-
-`abcdefghijklmnopqrstuvwxyz`
-
-`1234567890`
-
-`~!@#$%^&*()-—+=;:"'<>,.?/\|[]{}?`
-
-AND NOW WITH TERRIBLE DIACRITICS! And some math stuff!
-
----
-### I need help with it...
-File an issue, we'll see.
-
-### License
-It is licensed under the MIT License.
+# This is not a font, it's a typeface!
+Please refer to https://youtu.be/ndR081QG1Gg?si=WQS6HkuHaUd6gK87 .
