@@ -11,6 +11,12 @@ jobs:
 
       steps:
         - uses: actions/checkout@v4
+          with:
+            submodules: true
+        # setup-python does not work with
+        # fontforge apt package so we'll be
+        # using the distro's own python install.
+        #
         #- name: Set up Python 3.10
         #  uses: actions/setup-python@v3
         #  with:
